@@ -1,1 +1,188 @@
-/* Animations for Operation: Make Priyanshi Smile */
+.scene.active .reveal {
+  animation: reveal-text 900ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.scene.active .reveal:nth-child(1) {
+  animation-delay: 100ms;
+}
+
+.scene.active .reveal:nth-child(2) {
+  animation-delay: 240ms;
+}
+
+.scene.active .reveal:nth-child(3) {
+  animation-delay: 390ms;
+}
+
+.scene.active .reveal:nth-child(4) {
+  animation-delay: 520ms;
+}
+
+.scene.active .reveal:nth-child(5) {
+  animation-delay: 650ms;
+}
+
+@keyframes reveal-text {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes character-bob {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.5;
+    scale: 0.9;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.13;
+  }
+}
+
+@keyframes curtain-flash {
+  0% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0.88;
+  }
+
+  65% {
+    opacity: 0.88;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+/* =====================================
+   OPERATION: MAKE PRIYANSHI SMILE
+   CINEMATIC ANIMATION UPGRADE
+===================================== */
+
+/* Cinematic scene entrance */
+.scene.active .scene-content {
+  animation: cinematicEntrance 1s ease both;
+}
+
+@keyframes cinematicEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Dramatic title reveal */
+.scene.active h1 {
+  animation: titleReveal 1.4s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    letter-spacing: 12px;
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: normal;
+    filter: blur(0);
+  }
+}
+
+/* Cartoon character bounce */
+.cartoon-character {
+  animation: characterBounce 2.2s ease-in-out infinite;
+}
+
+@keyframes characterBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+/* Friendship memory cards */
+.memory-item {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.memory-item:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+}
+
+.memory-item img {
+  transition: transform 0.5s ease;
+}
+
+.memory-item:hover img {
+  transform: scale(1.06);
+}
+
+/* Smooth full-screen photo viewer */
+.memory-viewer {
+  transition: opacity 0.3s ease;
+}
+
+.memory-viewer img {
+  animation: photoReveal 0.45s ease both;
+}
+
+@keyframes photoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .scene.active .scene-content,
+  .scene.active h1,
+  .cartoon-character,
+  .memory-viewer img {
+    animation: none !important;
+  }
+
+  .memory-item,
+  .memory-item img {
+    transition: none !important;
+  }
+}
